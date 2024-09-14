@@ -3,4 +3,6 @@ class AppRoutes{
   static const home = '/home';
 static const detail ='/detail';
 static const chooser ='/chooser';
+static const results ='/results';
+static const voterDetail ='/voterdetail';
 }

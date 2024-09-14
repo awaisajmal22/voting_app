@@ -16,7 +16,9 @@ class ChooserScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-        customButton(context: context, onTap: (){}, title: 'Result'),
+        customButton(context: context, onTap: (){
+          Navigator.pushNamed(context, AppRoutes.results);
+        }, title: 'Result'),
         SizedBox(height: context.getSize.height * 0.01,),customButton(context: context, onTap: (){
           Navigator.pushNamed(context, AppRoutes.home);
         }, title: 'Vote'),

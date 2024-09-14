@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:votingapp/constant/constant.dart';
 import 'package:votingapp/controller/home_controller.dart';
 import 'package:votingapp/extensions/size_extension.dart';
+import 'package:votingapp/models/voter_detail_model.dart';
+import 'package:votingapp/routes/app_routes.dart';
 import 'package:votingapp/utils/background.dart';
 import 'package:votingapp/utils/custom_button.dart';
 
@@ -33,11 +35,13 @@ final border =  OutlineInputBorder(
                           CnicFormatter(),
                           LengthLimitingTextInputFormatter(15)
                         ] ,
-                        controller: controller.cnicController,
+                        controller: controller.cnicController..text = '31303-2826322-3',
                         decoration: InputDecoration(
               hintText: 'Enter Your CNIC..',
                       border: border,
-                      
+                      hintStyle: TextStyle(
+                        fontFamily: 'Protest Guerrilla'
+                      ),
                       errorBorder:border,
                       enabledBorder:border,focusedBorder: border,
                       disabledBorder: border,
@@ -48,7 +52,20 @@ final border =  OutlineInputBorder(
                       SizedBox(
                         height: context.getSize.height * 0.01,
                       ),
-                      customButton(context: context, onTap: (){}, title: 'Submit')
+                      customButton(context: context, onTap: (){
+                        if(controller.cnicController.text.isEmpty){
+
+                        }else{
+                     VoterDetailModel model = controller.votersList.firstWhere((v)=> v.cnic == controller.cnicController.text, orElse: (){
+                     return VoterDetailModel(); });
+                     print("Model ${model.cnic}");
+                     if(model.cnic!.isEmpty){
+
+                     }else{
+                      Navigator.pushNamed(context, AppRoutes.voterDetail, arguments: model);
+                     }
+                        }
+                      }, title: 'Submit')
                 ],
               ),
             ),

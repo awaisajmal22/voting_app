@@ -27,6 +27,7 @@ customButton({
       ),
       child: Text(title,style: TextStyle(
         color: textColor,
+        fontFamily: 'Protest Guerrilla',
         fontSize: context.fontSize(fontSize),
         fontWeight: fontWeight,
       )),
