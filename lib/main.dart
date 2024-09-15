@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:votingapp/controller/detail_controller.dart';
 import 'package:votingapp/controller/home_controller.dart';
 import 'package:votingapp/controller/results_controller.dart';
+import 'package:votingapp/controller/select_candidate_controller.dart';
 import 'package:votingapp/controller/splash_controller.dart';
 import 'package:votingapp/routes/app_pages.dart';
 import 'package:votingapp/routes/app_routes.dart';
@@ -20,7 +22,9 @@ class MyApp extends StatelessWidget {
     return MultiProvider(providers: [
       ChangeNotifierProvider(create: (_) => SplashController()),
       ChangeNotifierProvider(create: (_) => HomeController()),
-       ChangeNotifierProvider(create: (_) => ResultsController())
+       ChangeNotifierProvider(create: (_) => ResultsController()),
+       ChangeNotifierProvider(create: (_) => DetailController()),
+       ChangeNotifierProvider(create: (_) => SelectCandidateController()),
     ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
